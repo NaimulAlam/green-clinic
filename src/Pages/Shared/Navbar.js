@@ -51,8 +51,9 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <a href="/" class="btn btn-ghost normal-case text-xl text-green6">
-          GREEN Clinic
+        <a href="/" class="btn btn-ghost normal-case text-xl font-bold">
+          <span className="text-secondary">Green</span>
+          &nbsp;Clinic
         </a>
       </div>
       <div class="navbar-center hidden lg:flex">

@@ -9,7 +9,7 @@ import Login from './Pages/Login/Login';
 
 function App() {
   return (
-    <div className="">
+    <div className="" data-theme="greenClinic">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
