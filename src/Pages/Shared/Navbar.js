@@ -1,6 +1,29 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const menuItems = (
+    <>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="about">About</Link>
+      </li>
+      <li>
+        <Link to="reviewz">Reviewz</Link>
+      </li>
+      <li>
+        <Link to="appointment">Appointment</Link>
+      </li>
+      <li>
+        <Link to="contact-us">Contact Us</Link>
+      </li>
+      <li>
+        <Link to="login">Login</Link>
+      </li>
+    </>
+  );
   return (
     <div class="navbar bg-base-100">
       <div class="navbar-start">
@@ -25,49 +48,15 @@ const Navbar = () => {
             tabindex="0"
             class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="about">About</a>
-            </li>
-            <li>
-              <a href="/">Reviewz</a>
-            </li>
-            <li>
-              <a>Appointment</a>
-            </li>
-            <li>
-              <a>Contact Us</a>
-            </li>
-            <li>
-              <a>Login</a>
-            </li>
+            {menuItems}
           </ul>
         </div>
-        <a class="btn btn-ghost normal-case text-xl">GREEN Clinic</a>
+        <a href="/" class="btn btn-ghost normal-case text-xl text-green6">
+          GREEN Clinic
+        </a>
       </div>
       <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal p-0">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="about">About</a>
-          </li>
-          <li>
-            <a href="reviewz">Reviewz</a>
-          </li>
-          <li>
-            <a href="appointment">Appointment</a>
-          </li>
-          <li>
-            <a href="contact-us">Contact Us</a>
-          </li>
-          <li>
-            <a href="login">Login</a>
-          </li>
-        </ul>
+        <ul class="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
     </div>
   );

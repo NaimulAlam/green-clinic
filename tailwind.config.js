@@ -2,7 +2,15 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    colors: {
+      green6: "#16a34a",
+      green7: "#15803d",
+    },
+    extend: {
+      backgroundImage: {
+        "home-background": "url('/src/assets/images/bg.png')",
+      },
+    },
   },
   daisyui: {
     themes: [
