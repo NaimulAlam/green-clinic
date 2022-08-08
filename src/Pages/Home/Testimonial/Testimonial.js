@@ -1,13 +1,36 @@
 import React from "react";
 import TestimonialCard from "./TestimonialCard";
-import marker from "../../../assets/icons/marker.svg";
-import clock from "../../../assets/icons/clock.svg";
-import phone from "../../../assets/icons/phone.svg";
 import testimonialBG from "../../../assets/images/testimonial_bg.png";
 
 const Testimonial = () => {
+  const testimonials = [
+    {
+      _id: 1,
+      name: "John Doe",
+      city: "Bydgoszcz",
+      review:
+        "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      img: "https://placeimg.com/192/192/people",
+    },
+    {
+      _id: 2,
+      name: "Carolina Love",
+      city: "Chattogram",
+      review:
+        "lorem ipsum dolor sit amet, consectetur adipiscing elit, et dolore magna aliqua. Ut enim ad minim veniam.",
+      img: "https://placeimg.com/192/192/people",
+    },
+    {
+      _id: 3,
+      name: "Luke Smith",
+      city: "New York",
+      review:
+        "lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua. Ut enim ad minim veniam.",
+      img: "https://placeimg.com/192/192/people",
+    },
+  ];
   return (
-    <div className="pl-2 md:pl-16 lg:my-24">
+    <div className="pl-2 md:pl-16 lg:py-20 py-5">
       <div className="relative grid grid-cols-2">
         <div>
           <h1 className="text-secondary font-bold text-4xl my-5">
@@ -21,22 +44,13 @@ const Testimonial = () => {
           <img className="w-24 lg:w-48" src={testimonialBG} alt="" />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-2 md:px-10">
-        <TestimonialCard
-          cardTitle="Opening Hours"
-          bgClass="bg-gradient-to-r from-secondary to-primary"
-          img={clock}
-        />
-        <TestimonialCard
-          cardTitle="Our Locations"
-          bgClass="bg-accent"
-          img={marker}
-        />
-        <TestimonialCard
-          cardTitle="Contact Hours"
-          bgClass="bg-gradient-to-r from-secondary to-primary"
-          img={phone}
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-2 md:px-10 justify-items-center">
+        {testimonials.map((testimonial) => (
+          <TestimonialCard
+            key={testimonial._id}
+            testimonial={testimonial}
+          ></TestimonialCard>
+        ))}
       </div>
     </div>
   );

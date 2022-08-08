@@ -1,6 +1,9 @@
 import React from "react";
+import Footer from "../Shared/Footer";
 import Banner from "./Banner";
+import ContactUs from "./ContactUs";
 import Info from "./Info/Info";
+import MakeAppointment from "./MakeAppointment";
 import Service from "./Service/Service";
 import ServiceBanner from "./Service/ServiceBanner";
 import Testimonial from "./Testimonial/Testimonial";
@@ -16,9 +19,12 @@ const Home = () => {
         <Service />
         <ServiceBanner />
       </div>
-      <div className="min-h-screen mt-20">
+      <MakeAppointment />
+      <div className="md:min-h-screen">
         <Testimonial />
       </div>
+      <ContactUs />
+      <Footer />
     </div>
   );
 };
