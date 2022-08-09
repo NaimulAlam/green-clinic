@@ -13,30 +13,30 @@ const ContactUs = () => {
       <div className="px-5 py-10">
         <h3 className="text-xl text-primary uppercase font-bold">Contact Us</h3>
         <h3 className="text-3xl text-white">Stay connected with us</h3>
-        <div class="flex justify-center">
-          <div class="w-full md:w-96 py-12 space-y-2">
-            <div class="form-control">
+        <div className="flex justify-center">
+          <div className="w-full md:w-96 py-12 space-y-2">
+            <div className="form-control">
               <input
                 type="text"
                 placeholder="Email Address"
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
-            <div class="form-control">
+            <div className="form-control">
               <input
                 type="text"
                 placeholder="Subject"
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
-            <div class="form-control">
+            <div className="form-control">
               <input
                 type="text"
                 placeholder="Your Message"
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
-            <div class="form-control mx-24 mt-6">
+            <div className="form-control mx-24 mt-6">
               <PrimaryBtn>Submit</PrimaryBtn>
             </div>
           </div>

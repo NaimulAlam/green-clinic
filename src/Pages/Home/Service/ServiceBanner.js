@@ -4,14 +4,14 @@ import PrimaryBtn from "../../Shared/PrimaryBtn";
 
 const ServiceBanner = () => {
   return (
-    <div class="hero py-24">
-      <div class="hero-content flex-col lg:flex-row">
-        <img src={treatment} class="max-w-sm lg:max-w-md rounded-lg" alt="architecture" />
-        <div className=" pl-10">
-          <h1 class="text-5xl font-bold ">
+    <div className="hero py-24">
+      <div className="hero-content flex-col lg:flex-row">
+        <img src={treatment} className="max-w-sm lg:max-w-md rounded-lg" alt="architecture" />
+        <div className=" px-3 lg:pl-10">
+          <h1 className="text-5xl font-bold ">
             Exceptional Dental Care, on Your Terms
           </h1>
-          <p class="py-6">
+          <p className="py-6">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout. The point
             of using Lorem Ipsumis that it has a more-or-less normal
