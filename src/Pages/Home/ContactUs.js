@@ -29,11 +29,11 @@ const ContactUs = () => {
                 className="input input-bordered"
               />
             </div>
-            <div className="form-control">
+            <div className="form-control ">
               <input
-                type="text"
+                type="textarea"
                 placeholder="Your Message"
-                className="input input-bordered"
+                className="textarea textarea-bordered h-24 text-start"
               />
             </div>
             <div className="form-control mx-24 mt-6">
