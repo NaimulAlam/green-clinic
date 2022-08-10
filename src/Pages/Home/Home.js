@@ -11,7 +11,12 @@ import Testimonial from "./Testimonial/Testimonial";
 const Home = () => {
   return (
     <div className="">
-      <div className="min-h-screen bg-home-background">
+      <div
+        style={{
+          backgroundImage: `url(${require("../../assets/images/bg.png")})`,
+          backgroundSize: "cover",
+        }}
+        className="min-h-screen">
         <Banner />
         <Info />
       </div>

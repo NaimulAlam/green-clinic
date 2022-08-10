@@ -11,23 +11,40 @@ const Navbar = () => {
         <Link to="about">About</Link>
       </li>
       <li>
-        <Link to="reviewz">Reviewz</Link>
+        <a href="/#reviews">Reviews</a>
       </li>
       <li>
         <Link to="appointment">Appointment</Link>
       </li>
       <li>
-        <Link to="contact-us">Contact Us</Link>
+        <a
+          style={{
+            whiteSpace: "nowrap",
+          }}
+          href="/#contact-us"
+        >
+          Contact Us
+        </a>
       </li>
       <li>
         <Link to="login">Login</Link>
       </li>
     </>
   );
+
   return (
     <div className="navbar bg-base-100">
-      <div className="navbar-start">
-        <div className="dropdown">
+      <div className="flex-1">
+        <a
+          href="/"
+          className="btn btn-ghost normal-case md:text-xl text-lg font-bold"
+        >
+          <span className="text-secondary">Green</span>
+          &nbsp;Clinic
+        </a>
+      </div>
+      <div className="flex-none">
+        <div className="dropdown dropdown-end">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -51,10 +68,6 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <a href="/" className="btn btn-ghost normal-case text-xl font-bold">
-          <span className="text-secondary">Green</span>
-          &nbsp;Clinic
-        </a>
       </div>
       <div className="navbar-end hidden lg:flex pr-10">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>

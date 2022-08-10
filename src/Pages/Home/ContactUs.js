@@ -10,7 +10,7 @@ const ContactUs = () => {
       }}
       className="text-center my-12"
     >
-      <div className="px-5 py-10">
+      <div className="px-5 py-10" id="contact-us">
         <h3 className="text-xl text-primary uppercase font-bold">Contact Us</h3>
         <h3 className="text-3xl text-white">Stay connected with us</h3>
         <div className="flex justify-center">
