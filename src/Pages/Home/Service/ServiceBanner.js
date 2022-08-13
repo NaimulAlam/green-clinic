@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import treatment from "../../../assets/images/treatment.png";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 
@@ -6,7 +7,11 @@ const ServiceBanner = () => {
   return (
     <div className="hero py-24">
       <div className="hero-content flex-col lg:flex-row">
-        <img src={treatment} className="max-w-sm lg:max-w-md rounded-lg" alt="architecture" />
+        <img
+          src={treatment}
+          className="max-w-sm lg:max-w-md rounded-lg"
+          alt="architecture"
+        />
         <div className=" px-3 lg:pl-10">
           <h1 className="text-5xl font-bold ">
             Exceptional Dental Care, on Your Terms
@@ -19,7 +24,9 @@ const ServiceBanner = () => {
             here', making it look like readable English. Many desktop publishing
             packages and web page
           </p>
-          <PrimaryBtn>Book your appointment</PrimaryBtn>
+          <Link to="appointment">
+            <PrimaryBtn>Book your appointment</PrimaryBtn>
+          </Link>
         </div>
       </div>
     </div>
