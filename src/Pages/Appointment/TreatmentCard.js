@@ -23,7 +23,7 @@ const TreatmentCard = ({ service, setTreatment }) => {
             htmlFor="booking-modal"
             disabled={slots.length === 0}
             onClick={() => setTreatment(service)}
-            className="btn btn-secondary text-white uppercase"
+            className="btn btn-sm btn-secondary text-white uppercase bg-gradient-to-r from-secondary to-primary"
           >
             Book Apointment
           </label>
