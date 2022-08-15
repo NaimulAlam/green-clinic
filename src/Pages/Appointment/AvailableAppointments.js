@@ -15,10 +15,10 @@ const AvailableAppointments = ({ date, setDate }) => {
 
   return (
     <div>
-      <h1 className="text-xl text-center text-secondary">
+      <h1 className="text-xl text-center text-secondary py-10">
         Available Appointments on: {format(date, "PP")}
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center mx-5">
         {services.map((service) => (
           <TreatmentCard
             key={service._id}

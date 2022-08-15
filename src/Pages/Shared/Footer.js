@@ -56,7 +56,10 @@ const Footer = () => {
           </div>
         </div>
         <div className="pt-10 pb-5 text-center grid-flow-col">
-          <p>Copyright © 2022 - All rights reserved</p>
+          <p>
+            Copyright<span className="text-red-600"> &copy; NAiM </span>
+            {new Date().getFullYear()} -All rights reserved
+          </p>
         </div>
       </footer>
     </section>

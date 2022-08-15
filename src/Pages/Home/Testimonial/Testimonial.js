@@ -1,6 +1,9 @@
 import React from "react";
 import TestimonialCard from "./TestimonialCard";
 import testimonialBG from "../../../assets/images/testimonial_bg.png";
+import people1 from "../../../assets/images/people1.png";
+import people2 from "../../../assets/images/people2.png";
+import people3 from "../../../assets/images/people3.png";
 
 const Testimonial = () => {
   const testimonials = [
@@ -10,7 +13,7 @@ const Testimonial = () => {
       city: "Bydgoszcz",
       review:
         "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-      img: "https://placeimg.com/192/192/people",
+      img: people1,
     },
     {
       _id: 2,
@@ -18,15 +21,15 @@ const Testimonial = () => {
       city: "Chattogram",
       review:
         "lorem ipsum dolor sit amet, consectetur adipiscing elit, et dolore magna aliqua. Ut enim ad minim veniam.",
-      img: "https://placeimg.com/192/192/people",
+      img: people2,
     },
     {
       _id: 3,
-      name: "Luke Smith",
+      name: "Paper Smith",
       city: "New York",
       review:
         "lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua. Ut enim ad minim veniam.",
-      img: "https://placeimg.com/192/192/people",
+      img: people3,
     },
   ];
   return (
