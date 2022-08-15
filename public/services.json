@@ -20,8 +20,6 @@
     "_id": 3,
     "name": "Theeth Orthodontics",
     "slots": [
-      "08.00 AM - 08.30 AM",
-      "08.30 AM - 09.00 AM",
       "09.00 AM - 09.30 AM",
       "09.30 AM - 10.00 AM",
       "10.00 AM - 10.30 AM",
@@ -31,22 +29,12 @@
   {
     "_id": 4,
     "name": "Cosmetic Dentistry",
-    "slots": [
-      "08.00 AM - 08.30 AM",
-      "08.30 AM - 09.00 AM",
-      "09.00 AM - 09.30 AM",
-      "09.30 AM - 10.00 AM",
-      "10.00 AM - 10.30 AM",
-      "10.30 AM - 11.00 AM"
-    ]
+    "slots": ["10.00 AM - 10.30 AM", "10.30 AM - 11.00 AM"]
   },
   {
     "_id": 5,
     "name": "Cavity Filling",
     "slots": [
-      "08.00 AM - 08.30 AM",
-      "08.30 AM - 09.00 AM",
-      "09.00 AM - 09.30 AM",
       "09.30 AM - 10.00 AM",
       "10.00 AM - 10.30 AM",
       "10.30 AM - 11.00 AM"
