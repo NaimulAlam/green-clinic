@@ -26,7 +26,7 @@ const Login = () => {
     <div className="flex h-screen justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="text-center font-bold text-2xl">Login</h2>
+          <h2 className="text-center text-2xl">Login</h2>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">
@@ -43,13 +43,22 @@ const Login = () => {
                     message: "Email is required",
                   },
                   pattern: {
-                    value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                    value: /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/,
                     message: "Email is not valid",
                   },
                 })}
               />
               <label className="label">
-                <span className="label-text-alt">Alt Email label</span>
+                {errors.email?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.email.message}
+                  </span>
+                )}
+                {errors.email?.type === "pattern" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.email.message}
+                  </span>
+                )}
               </label>
             </div>
             <div className="form-control w-full max-w-xs">
@@ -58,19 +67,37 @@ const Login = () => {
               </label>
               <input
                 type="password"
-                placeholder="Your Password"
+                placeholder="Password"
                 className="input input-bordered w-full max-w-xs"
                 {...register("password", {
                   required: {
                     value: true,
-                    message: "password is required",
+                    message: "Password is required",
+                  },
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters",
                   },
                 })}
               />
               <label className="label">
-                <span className="label-text-alt">Alt Pass label</span>
+                {errors.password?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.password.message}
+                  </span>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.password.message}
+                  </span>
+                )}
               </label>
             </div>
+            <input
+              type="submit"
+              value="Login"
+              className="btn btn-outline-primary w-full max-w-xs text-white"
+            />
           </form>
 
           <div className="divider">OR</div>
