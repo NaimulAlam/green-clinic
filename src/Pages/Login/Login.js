@@ -1,25 +1,43 @@
 import React from "react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
+import Loading from "../Shared/Loading";
 
 const Login = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
 
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const onSubmit = (data) => console.log(data);
 
-  if (error) {
-    console.error("err", error);
+  const onSubmit = (data) => {
+    console.log("onSubmit", data);
+    signInWithEmailAndPassword(data.email, data.password);
+  };
+
+  let signInError;
+  if (error || gError) {
+    console.error("err", gError);
+    signInError = (
+      <p className="text-red-500 text-xs p-2 text-center">
+        {error?.message || gError?.message}
+      </p>
+    );
   }
-  if (user) {
-    console.log("user", user);
-  } else {
-    console.log("loading", loading);
+  if (user || gUser) {
+    console.log("user", gUser);
+  }
+  if (loading || gLoading) {
+    return <Loading />;
   }
 
   return (
@@ -98,6 +116,7 @@ const Login = () => {
               value="Login"
               className="btn btn-outline-primary w-full max-w-xs text-white"
             />
+            {signInError}
           </form>
 
           <div className="divider">OR</div>
