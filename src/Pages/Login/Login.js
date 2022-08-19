@@ -6,7 +6,7 @@ import {
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -20,10 +20,17 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data) => {
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
     console.log("onSubmit", data);
-    signInWithEmailAndPassword(data.email, data.password);
+    await signInWithEmailAndPassword(data.email, data.password);
+    navigate("/appointment");
   };
+
+  if (loading || gLoading) {
+    return <Loading />;
+  }
 
   let signInError;
   if (error || gError) {
@@ -35,10 +42,7 @@ const Login = () => {
     );
   }
   if (user || gUser) {
-    console.log("user", gUser);
-  }
-  if (loading || gLoading) {
-    return <Loading />;
+    console.log(user, gUser);
   }
 
   return (

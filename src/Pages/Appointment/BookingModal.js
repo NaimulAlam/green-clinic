@@ -33,9 +33,12 @@ const BookingModal = ({ date, treatment, setTreatment }) => {
               type="text"
               disabled
               value={format(date, "PP")}
-              class="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs"
             />
-            <select name="slot" class="select select-bordered w-full max-w-xs">
+            <select
+              name="slot"
+              className="select select-bordered w-full max-w-xs"
+            >
               {slots.map((slot) => (
                 <option value={slot}>{slot}</option>
               ))}
@@ -44,25 +47,25 @@ const BookingModal = ({ date, treatment, setTreatment }) => {
               type="text"
               name="name"
               placeholder="Full Name"
-              class="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs"
             />
             <input
               type="text"
               name="email"
               placeholder="Email Address"
-              class="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs"
             />
             <input
               type="text"
               name="phone"
               placeholder="Phone Number"
-              class="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs"
             />
             <input
               type="submit"
               value="Submit"
               placeholder="Type here"
-              class="btn btn-sm text-white bg-gradient-to-r from-secondary to-primary w-full max-w-xs"
+              className="btn btn-sm text-white bg-gradient-to-r from-secondary to-primary w-full max-w-xs"
             />
           </form>
         </div>

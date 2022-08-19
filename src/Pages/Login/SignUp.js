@@ -22,15 +22,19 @@ const SignUp = () => {
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-  const nevigate = useNavigate();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     console.log("onSubmit", data);
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile(data.name);
     console.log("Update Done");
-    nevigate("/appointment");
+    navigate("/appointment");
   };
+
+  if (loading || gLoading || updating) {
+    return <Loading />;
+  }
 
   let signInError;
   if (error || gError || updateError) {
@@ -43,9 +47,6 @@ const SignUp = () => {
   }
   if (user || gUser) {
     console.log("user", user);
-  }
-  if (loading || gLoading || updating) {
-    return <Loading />;
   }
 
   return (
