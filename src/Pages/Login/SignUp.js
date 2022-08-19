@@ -1,33 +1,40 @@
 import React from "react";
 import {
-  useSignInWithEmailAndPassword,
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const SignUp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
-
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data) => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+  const nevigate = useNavigate();
+
+  const onSubmit = async (data) => {
     console.log("onSubmit", data);
-    signInWithEmailAndPassword(data.email, data.password);
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile(data.name);
+    console.log("Update Done");
+    nevigate("/appointment");
   };
 
   let signInError;
-  if (error || gError) {
-    console.error("err", gError);
+  if (error || gError || updateError) {
+    console.error("err", error);
     signInError = (
       <p className="text-red-500 text-xs p-1 text-center">
         {error?.message || gError?.message}
@@ -35,9 +42,9 @@ const Login = () => {
     );
   }
   if (user || gUser) {
-    console.log("user", gUser);
+    console.log("user", user);
   }
-  if (loading || gLoading) {
+  if (loading || gLoading || updating) {
     return <Loading />;
   }
 
@@ -45,9 +52,32 @@ const Login = () => {
     <div className="flex h-screen justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="text-center text-2xl">Login</h2>
+          <h2 className="text-center text-2xl">Sign Up</h2>
 
           <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="input input-bordered w-full max-w-xs"
+                {...register("name", {
+                  required: {
+                    value: true,
+                    message: "Name is required",
+                  },
+                })}
+              />
+              <label className="label">
+                {errors.name?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.name.message}
+                  </span>
+                )}
+              </label>
+            </div>
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -115,14 +145,14 @@ const Login = () => {
             {signInError}
             <input
               type="submit"
-              value="Login"
+              value="Signup"
               className="btn btn-outline-primary w-full max-w-xs text-white"
             />
           </form>
           <p className="text-center text-sm">
-            New to Green Clinc?{" "}
-            <Link to="/signup" className="text-secondary">
-              Create New Account
+            Already have an account?{" "}
+            <Link to="/login" className="text-secondary">
+              Please login
             </Link>
           </p>
 
@@ -139,4 +169,5 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
+<h1>This is a Sign Up Page</h1>;
