@@ -7,6 +7,7 @@ import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -24,6 +25,14 @@ const Login = () => {
   // from is the path that the user was trying to access before they were redirected to the login page, so we can redirect them back to that path after they sign in or to the home page if they are already signed in
   let from = location.state?.from?.pathname || "/";
 
+  useEffect(() => {
+    if (user || gUser) {
+      console.log(user, gUser);
+      // if user is signed in, redirect to the from(where he was) location
+      navigate(from, { replace: true });
+    }
+  }, [user, gUser, navigate, from]);
+
   const onSubmit = async (data) => {
     console.log("onSubmit", data);
     await signInWithEmailAndPassword(data.email, data.password);
@@ -40,11 +49,6 @@ const Login = () => {
         {error?.message || gError?.message}
       </p>
     );
-  }
-  if (user || gUser) {
-    console.log(user, gUser);
-    // if user is signed in, redirect to the from(where he was) location
-    navigate(from, { replace: true });
   }
 
   return (
