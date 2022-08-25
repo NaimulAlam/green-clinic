@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import ResetPasswrodModal from "./ResetPasswrodModal";
 
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -122,6 +123,7 @@ const Login = () => {
                 )}
               </label>
             </div>
+
             {signInError}
             <input
               type="submit"
@@ -135,6 +137,16 @@ const Login = () => {
               Create New Account
             </Link>
           </p>
+
+          <div className="text-center text-xs">
+            <label
+              htmlFor="reset-password-modal"
+              className="label-text-alt modal-button text-orange-500 uppercase cursor-pointer hover:underline"
+            >
+              Forgot Password?
+            </label>
+            {<ResetPasswrodModal />}
+          </div>
 
           <div className="divider">OR</div>
           <button
