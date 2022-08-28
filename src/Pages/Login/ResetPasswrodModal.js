@@ -1,16 +1,30 @@
 import React from "react";
 import { useState } from "react";
+import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../Shared/Loading";
 
 const ResetPasswrodModal = () => {
   const [email, setEmail] = useState("");
+  const [sendPasswordResetEmail, sending, error] =
+    useSendPasswordResetEmail(auth);
 
-  const handleReset = (e) => {
+  if (sending) {
+    return <Loading />;
+  }
+
+  const handleReset = async (e) => {
     e.preventDefault();
+    await sendPasswordResetEmail(email);
     console.log(email);
-    if (email) {
-      setTimeout(() => window.location.reload(), 2000);
-    }
+    // if (email) {
+    //   setTimeout(() => window.location.reload(), 2000);
+    // }
   };
+
+  if (error) {
+    console.log(error);
+  }
 
   return (
     <div>
