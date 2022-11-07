@@ -11,18 +11,19 @@ import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
-
-  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-
-  const navigate = useNavigate();
+  if (loading || gLoading || updating) {
+    return <Loading />;
+  }
 
   const onSubmit = async (data) => {
     console.log("onSubmit", data);
@@ -32,11 +33,12 @@ const SignUp = () => {
     navigate("/appointment");
   };
 
-  if (loading || gLoading || updating) {
-    return <Loading />;
+  if (user || gUser) {
+    console.log("user", user);
   }
 
   let signInError;
+
   if (error || gError || updateError) {
     console.error("err", error);
     signInError = (
@@ -44,9 +46,6 @@ const SignUp = () => {
         {error?.message || gError?.message}
       </p>
     );
-  }
-  if (user || gUser) {
-    console.log("user", user);
   }
 
   return (
@@ -171,4 +170,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-<h1>This is a Sign Up Page</h1>;

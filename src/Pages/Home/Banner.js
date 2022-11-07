@@ -1,6 +1,6 @@
-import React from 'react';
-import chair from '../../assets/images/chair.png';
-import PrimaryBtn from '../Shared/PrimaryBtn';
+import React from "react";
+import chair from "../../assets/images/chair.png";
+import PrimaryBtn from "../Shared/PrimaryBtn";
 
 const Banner = () => {
   return (
@@ -18,7 +18,9 @@ const Banner = () => {
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <PrimaryBtn>Get Started</PrimaryBtn>
+          <a href="#service_banner">
+            <PrimaryBtn>Get Started</PrimaryBtn>
+          </a>
         </div>
       </div>
     </div>

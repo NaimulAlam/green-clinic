@@ -5,7 +5,7 @@ import PrimaryBtn from "../../Shared/PrimaryBtn";
 
 const ServiceBanner = () => {
   return (
-    <div className="hero py-24">
+    <div className="hero py-24" id="service_banner">
       <div className="hero-content flex-col lg:flex-row">
         <img
           src={treatment}
@@ -13,7 +13,7 @@ const ServiceBanner = () => {
           alt="architecture"
         />
         <div className=" px-3 lg:pl-10">
-          <h1 className="text-5xl font-bold ">
+          <h1 className="text-5xl font-bold" id="service_banner">
             Exceptional Dental Care, on Your Terms
           </h1>
           <p className="py-6">
