@@ -17,6 +17,7 @@ const Home = () => {
           backgroundSize: "cover",
         }}
         className="min-h-screen">
+        <h1>This is depricated for now</h1>
         <Banner />
         <Info />
       </div>
